@@ -18,7 +18,7 @@ class GetTailsFlow {
 
         @Suspendable
         override fun call(): Map<String, String> {
-            val tailsPath = (indyUser().walletUser as IndySDKWalletUser).tailsPath
+            val tailsPath = (indyUser().walletUser as IndySDKWalletUser).getTailsPath()
             val tailsMap = File(tailsPath).list().associate { it to Paths.get(tailsPath, it).toFile().readText() }
 
             return tailsMap

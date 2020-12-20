@@ -75,7 +75,7 @@ fun indyInitialize() : Boolean {
     val observable = Observable.create<Unit> { observer ->
         try {
             t = Thread {
-                pool = PoolHelper.openOrCreate(File(GENESIS_PATH), "pool")
+                pool = PoolHelper.openOrCreate(File(GENESIS_PATH), "default_pool")
                 wallet = WalletHelper.openOrCreate("medical-supplychain", "password")
             }
             t?.apply { run(); join() }
